@@ -8,7 +8,7 @@ export default async function handler(req, res) {
         };
         const apiKey = process.env.GOOGLE_API_KEY;
 
-        const response = await axios.get(`https://maps.googleapis.com/maps/api/streetview/metadata`, {
+        const response = await axios.get('https://maps.googleapis.com/maps/api/streetview/metadata', {
             params: {
                 location: `${randomCoords.lat},${randomCoords.lng}`,
                 key: apiKey
