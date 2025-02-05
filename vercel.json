@@ -1,24 +1,24 @@
 {
   "builds": [
     {
-      "src": "api/**/*.js",
-      "use": "@vercel/node"
+      "src": "api/**/*.js",  // Match all JS files in the api directory
+      "use": "@vercel/node"   // Use Vercel's Node.js serverless function
     },
     {
-      "src": "frontend/package.json",
+      "src": "frontend/package.json",  // Entry point for the static build
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "frontend/build"
+        "distDir": "frontend/build"  // Output directory for the frontend build
       }
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
+      "src": "/api/(.*)",  // Route for API requests
       "dest": "/api/$1"
     },
     {
-      "src": "/(.*)",
+      "src": "/(.*)",  // Route for serving static files
       "dest": "frontend/build/$1"
     }
   ]
